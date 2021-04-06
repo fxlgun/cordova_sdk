@@ -21,14 +21,17 @@ export class TrackierSDK {
 }
 
 export class TrackierEvent {
-    constructor(eventId:string)
+    private eventId: string;
+    constructor(eventId:string) {
+        this.eventId = eventId;
+    }
     setEventValue: (key:string,value:string) => void
 }
 
 @Plugin({
-  pluginName: 'TrackierSDK',
-  plugin: 'com.trackier.sdk',
-  pluginRef: 'TrackierSDK',
+  pluginName: 'TrackierCordovaSDK',
+  plugin: 'trackier-cordova-sdk',
+  pluginRef: 'TrackierCordovaSDK',
   repo: 'https://github.com/trackier/cordova_sdk',
   platforms: ['Android']
 })
