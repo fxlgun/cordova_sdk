@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.trackier.sdk" version="1.0.0">
    <name>TrackierCordovaSDK</name>
-   <js-module src="www/TrackierSDK.js" name="TrackierCordova" >
-      <clobbers target="TrackierSDK" />
+   <js-module src="www/TrackierSDK.js" name="TrackierCordovaSDK" >
+      <clobbers target="TrackierCordovaSDK" />
    </js-module>
    <platform name="android">
       <config-file parent="/*" target="res/xml/config.xml">
-         <feature name="TrackierSDK">
+         <feature name="TrackierCordovaSDK">
             <param name="android-package" value="com.trackier.sdk.TrackierCordova" />
             <param name="onload" value="true" />
          </feature>

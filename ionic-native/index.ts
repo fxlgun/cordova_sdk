@@ -15,11 +15,6 @@ export class TrackierConfig {
     }
 }
 
-export class TrackierSDK {
-    initialize: (trackierConfig: TrackierConfig) => void
-    trackEvent: (trackierEvent:TrackierEvent) => void
-}
-
 export class TrackierEvent {
     private eventId: string;
     constructor(eventId:string) {
@@ -32,11 +27,11 @@ export class TrackierEvent {
   pluginName: 'TrackierCordovaSDK',
   plugin: 'trackier-cordova-sdk',
   pluginRef: 'TrackierCordovaSDK',
-  repo: 'https://github.com/trackier/cordova_sdk',
+  repo: 'https://github.com/trackier/cordova_sdk.git',
   platforms: ['Android']
 })
 @Injectable()
-export class TrackierSDK extends IonicNativePlugin {
+export class TrackierCordovaSDK extends IonicNativePlugin {
 
   /**
    * This method initializes Trackier SDK
