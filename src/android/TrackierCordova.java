@@ -19,6 +19,7 @@ public class TrackierCordova extends CordovaPlugin {
             initialize(args);
             return true;
         } else if (action.equals("trackEvent")) {
+            trackEvent(args);
             return true;
         }
         return false;
