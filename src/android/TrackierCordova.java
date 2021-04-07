@@ -49,8 +49,8 @@ public class TrackierCordova extends CordovaPlugin {
         Map<String, Object> parameters = TrackierCordovaUtil.jsonObjectToMap(jsonParameters);
 
         String eventId = "";
-        if (parameters.containsKey(KEY_EVENT_ID)) {
-            eventId = parameters.get(KEY_EVENT_ID).toString();
+        if (parameters.containsKey(TrackierCordovaUtil.KEY_EVENT_ID)) {
+            eventId = parameters.get(TrackierCordovaUtil.KEY_EVENT_ID).toString();
         }
         TrackierEvent evtObj = new TrackierEvent(eventId);
         TrackierSDK.trackEvent(evtObj);
