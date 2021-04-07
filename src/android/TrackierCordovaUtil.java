@@ -1,5 +1,9 @@
 package com.trackier.sdk;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.util.*;
+
 public class TrackierCordovaUtil {
     public static final String KEY_APP_TOKEN = "appToken";
     public static final String KEY_ENVIRONMENT = "environment";
