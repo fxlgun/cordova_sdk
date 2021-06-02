@@ -43,17 +43,17 @@ For Event Tracking :
 1)Event track with Trackier Cordova SDK:
 
     var trackierEvent = new TrackierEvent(TrackierEvent.UPDATE);
-    trackierEvent.param1 = "XXXXXX";
-    trackierEvent.param2 = "kkkkkkk";
+    trackierEvent.setParam1("XXXXXX");
+    trackierEvent.setParam2("kkkkkkk");
     TrackierSDK.trackEvent(trackierEvent);
 
 
 2)Event track with currency and revenue with Trackier Cordova SDK:
 
     var trackierEvent = new TrackierEvent(TrackierEvent.UPDATE);
-    trackierEvent.param1 = "XXXXXX";
-    trackierEvent.param2 = "kkkkkkk";
-    trackierEvent.revenue = 2.5;
-    trackierEvent.currency = "USD";
+    trackierEvent.setParam1("XXXXXX");
+    trackierEvent.setParam2("kkkkkkk");
+    trackierEvent.setRevenue(2.5);
+    trackierEvent.setCurrency("USD");
     TrackierSDK.trackEvent(trackierEvent);
     
