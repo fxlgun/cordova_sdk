@@ -1,24 +1,28 @@
-package com.trackier.sdk;
+package com.trackier.cordova_sdk;
 
+import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-import java.util.*;
 
 public class TrackierCordovaUtil {
-    public static final String KEY_APP_TOKEN = "appToken";
-    public static final String KEY_ENVIRONMENT = "environment";
-    public static final String KEY_EVENT_ID = "eventId";
 
-    public static Map<String, Object> jsonObjectToMap(JSONObject jsonObject) throws JSONException {
-        Map<String, Object> map = new HashMap<String, Object>(jsonObject.length());
-        @SuppressWarnings("unchecked")
-        Iterator<String> jsonObjectIterator = jsonObject.keys();
-
-        while (jsonObjectIterator.hasNext()) {
-            String key = jsonObjectIterator.next();
-            map.put(key, jsonObject.get(key));
+    public static String getStringVal(String key, JSONObject jsonObject) {
+        try {
+            return jsonObject.getString(key);
+        } catch (JSONException e) {
+            
         }
+        
+        return "";
+    }
 
-        return map;
+    public static Double getDoubleVal(String key, JSONObject jsonObject) {
+        try {
+            return jsonObject.getDouble(key);
+        } catch (JSONException e) {
+
+        }
+        
+        return 0.0;
     }
 }
