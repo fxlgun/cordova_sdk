@@ -1,4 +1,4 @@
-cordova-sdk
+# cordova-sdk
 
 Example app :  There is an example app inside the example directory.
 
