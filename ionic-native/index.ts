@@ -4,6 +4,7 @@ import { Plugin, Cordova, IonicNativePlugin } from '@ionic-native/core';
 export enum TrackierEnvironment {
 	Development = 'development',
 	Production = 'production'
+	Testing = 'testing'
 }
 
 export class TrackierConfig {

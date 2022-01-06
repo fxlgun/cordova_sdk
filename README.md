@@ -16,6 +16,7 @@ Depending on whether you build your app for testing or for production, you must 
 
     TrackierEnvironment.Development
     TrackierEnvironment.Production
+    TrackierEnvironment.Testing
 
 In your index.js file after you have received the deviceready event, add the following code to initialize the Trackier SDK:
 
