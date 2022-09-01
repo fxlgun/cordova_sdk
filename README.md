@@ -39,7 +39,7 @@ $ npm install trackier/cordova_sdk
 2. You need to add the awesome cordova plugins by run the below commands in Terminal/Cmd.
 
 ```
-$ npm install @awesome-cordova-plugins
+$ npm install @awesome-cordova-plugins/core --save
 ```
 
 3. Run the below commands in Terminal/Cmd.
@@ -51,7 +51,7 @@ After following all the above steps, Please add the trackier folder in the the `
 
 You can download the trackier folder by the click on below link.
 
-Link - https://github.com/trackier/cordova_sdk/tree/main/ionic-native/trackier
+Link - https://github.com/trackier/cordova_sdk/releases/tag/v1.6.29
 
 Please check the below screenshots for the reference.
 
