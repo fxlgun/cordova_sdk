@@ -334,7 +334,7 @@ Screenshot[7]
 
 For getting the campaign data, We have a function that return the campaign data. Please check below the example code.
 
-```
+```js
 async ngOnInit() {
     var trackierEvent = new TrackierEvent("1CFfUn3xEY");
 
