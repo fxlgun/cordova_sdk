@@ -14,6 +14,7 @@
   - [Built-in Events](#qs-built-in)
   - [Customs Events](#qs-customs-events)
   - [Revenue Event Tracking](#qs-track-event-with-currencey)
+- [Getting Campaign Data](#qs-campaign-data)
 - [Proguard Settings](#qs-progaurd-trackier-sdk)
 
 ## <a id="qs-add-trackier-sdk"></a>Quick start guide
@@ -329,6 +330,36 @@ Screenshot[7]
 
 <img width="1000" alt="Screenshot 2022-07-20 at 5 44 15 PM" src="https://user-images.githubusercontent.com/16884982/179979416-bafcfbe6-80f1-48e9-910e-1d64ecbf8607.png">
 
+## <a id="qs-campaign-data"></a>Getting Campaign Data 
+
+For getting the campaign data, We have a function that return the campaign data. Please check below the example code.
+
+```
+async ngOnInit() {
+    var trackierEvent = new TrackierEvent("1CFfUn3xEY");
+
+    //Campaign Data Methods
+    this.trackierCordovaPlugin.getTrackierId().then(val => console.log('===trackierid-: ', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getAd().then(val => console.log('getAd', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getAdID().then(val => console.log('getAdID', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getCampaign().then(val => console.log('getCampaign', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getCampaignID().then(val => console.log('getCampaignID', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getAdSet().then(val => console.log('getAdSet', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getAdSetID().then(val => console.log('getAdSetID', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getChannel().then(val => console.log('getChannel', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getP1().then(val => console.log('getP1', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getP2().then(val => console.log('getP2', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getP3().then(val => console.log('getP3', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getP4().then(val => console.log('getP4', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getP5().then(val => console.log('getP5', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getClickId().then(val => console.log('getClickId', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getDlv().then(val => console.log('getDlv', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getPid().then(val => console.log('getPid', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.getIsRetargeting().then(val => console.log('getIsRetargeting', val)).catch(e => console.log('error: ', e));
+    this.trackierCordovaPlugin.trackEvent(trackierEvent);
+  }
+
+```
         
 ## <a id="qs-progaurd-trackier-sdk"></a>Proguard Settings 
 
