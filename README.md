@@ -8,7 +8,10 @@
   - [Add Cordova SDK to your app ](#qs-add-sdk)
 - [Integrate and Initialize the Trackier SDK](#qs-implement-trackier-sdk)
   - [Retrieve your sdk key](#qs-retrieve-sdk-key)
+  - [Adding Android install referrer to your app](#qs-add-install-referrer)
+  - [Getting Google Advertising ID](#qs-getting-gaid)
   - [Initialize the SDK into your app](#qs-initialize-trackier-sdk)
+  - [Getting Google Advertising ID](#qs-getting-gaid)
 - [Events Tracking](#qs-track-event)
   - [Retrieve Event Id from dashboard](#qs-retrieve-event-id)
   - [Built-in Events](#qs-built-in)
@@ -79,6 +82,61 @@ After following all the steps, Your SDK key should look like the below screensho
 Screenshot[1]
 
 <img width="1000" alt="Screenshot 2022-06-10 at 3 46 48 PM" src="https://user-images.githubusercontent.com/16884982/173044860-a540706c-ad10-4174-aaf0-7cf9290fc949.png">
+
+### <a id="qs-add-install-referrer"></a>Adding Android install referrer to your app
+
+Add the Android Install Referrer as a dependency in your app **`build.gradle`** . You can find the latest version [here](https://developer.android.com/google/play/installreferrer/library)
+
+```gradle
+dependencies {
+  // make sure to use the latest SDK version:
+  implementation 'com.android.installreferrer:installreferrer:2.2'
+}
+```
+
+### <a id="qs-add-request-permissions"></a>Add required permissions
+
+Trackier SDK need the following below permission in the AndroidManifest.xml
+
+Please add the below permission in your app project AndroidManifest.xml. if they are not added.
+
+```xml
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+  <!-- Optional : -->
+  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+```
+
+### <a id="qs-getting-gaid"></a> Getting Google Advertising ID
+
+Trackier SDK need the advertising id from the application.
+
+For achieving this, you need to add some line of code in the build.gradle and also in AndroidManifest.xml for read the Advertising id from the application which is mentioned below:-
+
+- Add the google advertising id dependency in your **android/app/build.gradle**
+
+
+```gradle
+dependencies {
+  // This can be added where the SDK dependency has been added
+  implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+}
+```
+- Update your Android Manifest file by adding the following permission. This is required if your app is targeting devices with android version 12+
+
+```xml
+<uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+```
+
+- Add meta data inside the application tag (If not already added)
+```xml
+<meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" /> //Add this meta-data in the manifest.xml under Application tag.
+```
+
 
 #### <a id="qs-initialize-trackier-sdk"></a>Integrate the Trackier SDK in the Cordova Application.
 
