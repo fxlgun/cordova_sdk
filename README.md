@@ -17,6 +17,7 @@
   - [Built-in Events](#qs-built-in)
   - [Customs Events](#qs-customs-events)
   - [Revenue Event Tracking](#qs-track-event-with-currencey)
+- [SDK Signing](#qs-sdk-signing)
 - [Getting Campaign Data](#qs-campaign-data)
 - [Proguard Settings](#qs-progaurd-trackier-sdk)
 
@@ -387,6 +388,57 @@ Below are the screenshot of example of revenue events
 Screenshot[7]
 
 <img width="1000" alt="Screenshot 2022-07-20 at 5 44 15 PM" src="https://user-images.githubusercontent.com/16884982/179979416-bafcfbe6-80f1-48e9-910e-1d64ecbf8607.png">
+
+## <a id="qs-sdk-signing"></a>SDK Signing
+
+Following below are the steps to retrieve the secretId and secretKey :-
+
+- Login your Trackier Panel and select your application.
+- In the Dashboard, click on the `SDK Integration` option on the left side of panel. 
+- Under on the SDK Integration, click on the Advanced tab. 
+- Under the Advanced tab, you will get the secretId and secretKey.
+
+Please check on the below screenshot
+
+Screenshot[8]
+
+<img width="1000" alt="Screenshot 8" src="https://user-images.githubusercontent.com/16884982/185338826-bcf802d0-c493-4a67-adb3-a9b52bae289e.png">
+
+
+Check below the example code for passing the secretId and secretKey to the SDK
+
+```ts
+
+import { Component, OnInit } from '@angular/core';
+import { TrackierCordovaPlugin, TrackierConfig, TrackierEnvironment } from '@awesome-cordova-plugins/trackier/ngx';
+
+
+@Component({
+  selector: 'app-tab1',
+  templateUrl: 'tab1.page.html',
+  styleUrls: ['tab1.page.scss']
+})
+export class Tab1Page {
+  constructor(private trackierCordovaPlugin: TrackierCordovaPlugin) {
+
+  }
+  async ngOnInit() {
+
+    // await this.photoService.loadSaved();
+
+    /*While Initializing the Sdk, You need to pass the three parameter in the TrackierSDKConfig.
+         * In first argument, you need to pass the Trackier SDK api key
+         * In second argument, you need to pass the environment which can be either "development", "production" or "testing". */
+
+    var key = "abcf2270-xxxx-xxxx-a2ae-34903c6e1d53";//Please pass your Development key here.//abcf2270-d94a-xxxx-xxxx-34903c6e1d53 //6eb549a7-d17c-42fa-b694-1487607e39d0
+    var trackierConfig = new TrackierConfig(key, TrackierEnvironment.Development);
+    trackierConfig.setAppSecret("659fb6f1xxxxxxxa29d46c9", "9258fcdb-a7a7-xxxxx-xxxx-65835ed38407");
+    this.trackierCordovaPlugin.initializeSDK(trackierConfig);
+  }
+}
+
+```
+
 
 ## <a id="qs-campaign-data"></a>Getting Campaign Data 
 
