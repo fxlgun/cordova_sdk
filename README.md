@@ -18,6 +18,7 @@
   - [Customs Events](#qs-customs-events)
   - [Revenue Event Tracking](#qs-track-event-with-currencey)
 - [SDK Signing](#qs-sdk-signing)
+- [Uninstall Tracking](#qs-track-uninstall)
 - [Getting Campaign Data](#qs-campaign-data)
 - [Proguard Settings](#qs-progaurd-trackier-sdk)
 
@@ -438,7 +439,19 @@ export class Tab1Page {
 }
 
 ```
+## <a id="qs-track-uninstall"></a>Uninstall Tracking 
 
+Trackier uninstall functionality is used to track the uninstall of the application from the devices. It is very useful for tracking the quality of the user.
+
+```ts
+ this.trackierCordovaPlugin.getTrackierId().then(val =>
+      FirebaseAnalytics.setUserProperty({ name: "ct_objectId", value: val, }))
+      .catch(e => console.log('error: ', e)); // Replace this with your actual method to get ct_objectId
+``` 
+* Add the above code to your app to set up a common identifier. 
+* Set the `app_remove` event as a conversion event in Firebase. 
+* Use the Firebase cloud function to send uninstall information to Trackier MMP. 
+* You can find the support article [here]https://help-mmp.trackier.com/en/articles/8165821-android-uninstall-tracking
 
 ## <a id="qs-campaign-data"></a>Getting Campaign Data 
 
