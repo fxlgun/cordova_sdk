@@ -17,9 +17,11 @@
   - [Built-in Events](#qs-built-in)
   - [Customs Events](#qs-customs-events)
   - [Revenue Event Tracking](#qs-track-event-with-currencey)
+  - [Passing User Data to SDK](#qs-passing-user-data)
 - [SDK Signing](#qs-sdk-signing)
 - [Uninstall Tracking](#qs-track-uninstall)
 - [Getting Campaign Data](#qs-campaign-data)
+- [Deep linking](#qs-deeplinking)
 - [Proguard Settings](#qs-progaurd-trackier-sdk)
 
 ## <a id="qs-add-trackier-sdk"></a>Quick start guide
@@ -390,6 +392,40 @@ Screenshot[7]
 
 <img width="1000" alt="Screenshot 2022-07-20 at 5 44 15 PM" src="https://user-images.githubusercontent.com/16884982/179979416-bafcfbe6-80f1-48e9-910e-1d64ecbf8607.png">
 
+## <a id="qs-passing-user-data"></a>Passing User Data to SDK
+
+Trackier allows to pass additional data like Userid, Email to SDK so that same can be correlated to the Trackier Data and logs.
+
+Just need to pass the data of User Id, Email Id and other additional data to Trackier SDK function which is mentioned below:-
+
+```js
+import { Component } from '@angular/core';
+import { TrackierCordovaPlugin, TrackierConfig, TrackierEvent, TrackierEnvironment } from '@awesome-cordova-plugins/trackier/ngx';
+
+@Component({
+  selector: 'app-tab2',
+  templateUrl: 'tab2.page.html',
+  styleUrls: ['tab2.page.scss']
+})
+export class Tab2Page {
+
+  constructor(private trackierCordovaPlugin: TrackierCordovaPlugin) { }
+
+  async ngOnInit() {
+    var trackierEvent = new TrackierEvent("1CFfUn3xEY");
+    trackierEvent.setCouponCode("TestCode");
+    this.trackierCordovaPlugin.setUserId("TestUserId");
+    this.trackierCordovaPlugin.setUserName("testName");
+    this.trackierCordovaPlugin.setUserPhone("XXXXXXX");
+    this.trackierCordovaPlugin.setUserEmail("sanu@gmail.com");
+    this.trackierCordovaPlugin.setDOB("12/1/2022");
+    this.trackierCordovaPlugin.setGender("Male");
+    this.trackierCordovaPlugin.trackEvent(trackierEvent);
+  }
+}
+
+```
+
 ## <a id="qs-sdk-signing"></a>SDK Signing
 
 Following below are the steps to retrieve the secretId and secretKey :-
@@ -483,6 +519,57 @@ async ngOnInit() {
   }
 
 ```
+
+## <a id="qs-deeplinking"></a>Deeplinking
+
+Deep linking is a techniques in which the user directly redirect to the specific pages of the application by click on the deeplink url.
+
+There are two types deeplinking
+
+* ***Normal deeplinking*** - Direct deep linking occurs when a user already has your app installed on their device. When this is the case, the deep link will redirect the user to the screen specified in the link.
+
+* ***Deferred deeplinking*** - Deferred deep linking occurs when a user does not have your app installed on their device. When this is the case, the deep link will first send the user to the device app store to install the app. Once the user has installed and opened the app, the SDK will redirect them to the screen specified in the link.
+
+Please check below the Deeplinking scenario 
+
+<img width="705" alt="Screenshot 2022-06-22 at 10 48 20 PM" src="https://user-images.githubusercontent.com/16884982/175099075-349910ce-ce7b-4a71-868c-11c34c4331cd.png">
+
+
+### Normal Deep linking
+
+If a user already has your app on their device, it will open when they interact with a tracker containing a deep link. You can then parse the deep link information for further use. To do this, you need to choose a desired unique scheme name.
+
+You can set up a specific activity to launch when a user interacts with a deep link. To do this:
+
+* Assign the unique scheme name to the activity in your AndroidManifest.xml file.
+* Add the intent-filter section to the activity definition.
+* Assign an android:scheme property value with your preferred scheme name.
+
+For example, you could set up an activity called FirstActivity to open like this:
+#### AndroidManifest.xml 
+
+```
+
+        <activity
+            android:name=".Activity.FirstProduct"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data
+                android:host="trackier.u9ilnk.me"
+                android:pathPrefix="/product"
+                android:scheme="https" />
+        </intent-filter>
+        </activity>
+
+```
+
+```
+https://trackier.u9ilnk.me/product?dlv=FirstProduct&quantity=10&pid=sms
+```
+
         
 ## <a id="qs-progaurd-trackier-sdk"></a>Proguard Settings 
 
