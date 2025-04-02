@@ -22,9 +22,9 @@ export class TrackierConfig {
 		this.appToken = appToken;
 		this.environment = environment;
 		this.secretId = this.secretId;
-		this.secretKey = this.secretKey
-		this.manualMode = this.manualMode
-		this.disableOrganic = this.disableOrganic
+		this.secretKey = this.secretKey;
+		this.manualMode = this.manualMode;
+		this.disableOrganic = this.disableOrganic;
 	}
 
 	public setAppSecret(key: string, value: string): void {
