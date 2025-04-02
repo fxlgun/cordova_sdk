@@ -55,10 +55,6 @@ exports.getTrackierId = function (callback) {
     cordovaExecCommandCallback('getTrackierId', callback);
 };
 
-exports.setDeeplinks = function (callback) {
-    cordovaExecCommandCallback('setDeeplinks', callback);
-};
-
 exports.getAd = function (callback) {
     cordovaExecCommandCallback('getAd', callback);
 };
