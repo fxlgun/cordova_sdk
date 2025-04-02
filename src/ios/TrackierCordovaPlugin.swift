@@ -18,7 +18,7 @@ class TrackierCordovaPlugin : CDVPlugin {
             let config = TrackierSDKConfig(appToken: appToken , env: environment)
             config.setAppSecret(secretId: secretId, secretKey: secretKey)
             config.setSDKType(sdkType: "cordova_sdk")
-            config.setSDKVersion(sdkVersion: "1.6.59")
+            config.setSDKVersion(sdkVersion: "1.6.64")
             TrackierSDK.initialize(config: config)
 
             pluginResult = CDVPluginResult(
@@ -183,6 +183,12 @@ class TrackierCordovaPlugin : CDVPlugin {
         var pluginResult: CDVPluginResult?
         pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: TrackierSDK.getIsRetargeting())
         self.commandDelegate.send(pluginResult, callbackId: command.callbackId)
+    }
+  
+    @objc(updateAppleAdsToken:)
+    func updateAppleAdsToken(command: CDVInvokedUrlCommand){
+      let msg = command.arguments[0] as? String ?? ""
+      TrackierSDK.updateAppleAdsToken(token: msg)
     }
 
     @objc(trackEvent:)

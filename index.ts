@@ -1,10 +1,12 @@
 import { AwesomeCordovaNativePlugin } from '@awesome-cordova-plugins/core';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { fromEvent } from 'rxjs';
 
 export enum TrackierEnvironment {
 	Development = 'development',
-	Production = 'production'
-	Testing = 'testing'
+	Production = 'production',
+	Testing = 'testing',
 }
 
 export class TrackierConfig {
@@ -13,14 +15,16 @@ export class TrackierConfig {
 	private secretId: string = '';
 	private secretKey: string = '';
 	private manualMode: boolean = false;
-	private disableOrganic boolean = false;
+	private disableOrganic: boolean = false;
+	private attributionParams: { [key: string]: string } = {};
+	
 	constructor(appToken: string, environment: TrackierEnvironment) {
 		this.appToken = appToken;
 		this.environment = environment;
 		this.secretId = this.secretId;
-		this.secretKey = this.secretKey
-		this.manualMode = this.manualMode
-		this.disableOrganic = this.disableOrganic
+		this.secretKey = this.secretKey;
+		this.manualMode = this.manualMode;
+		this.disableOrganic = this.disableOrganic;
 	}
 
 	public setAppSecret(key: string, value: string): void {
@@ -35,6 +39,10 @@ export class TrackierConfig {
 	public disableOrganicTracking(value: boolean): void {
 		this.disableOrganic = value
 	}
+
+	public setAttributionParams(params: { [key: string]: string }): void {
+		this.attributionParams = { ...this.attributionParams, ...params };
+	} 
 
 }
 
@@ -128,10 +136,11 @@ export class TrackierEvent {
 export class TrackierCordovaPlugin extends AwesomeCordovaNativePlugin {
 
 	@Cordova()
-	initializeSDK(config: TrackierConfig): Promise<any> {
-		return;
+	initializeSDK(config: TrackierConfig): Promise<void> {
+	    return;
 	}
-
+ 
+	 
 	@Cordova()
 	trackEvent(event: TrackierEvent): Promise<any> {
 		return;
@@ -259,6 +268,36 @@ export class TrackierCordovaPlugin extends AwesomeCordovaNativePlugin {
 
 	@Cordova()
 	getIsRetargeting(): Promise<string> {
+		return;
+	}
+
+	@Cordova()
+	updateAppleAdsToken(token: any): Promise<string> {
+		return;
+	}
+
+	@Cordova({
+		observable: true // This allows callback-based events
+	  })
+	  setDeferredDeeplinkCallbackListener(): Observable<string> {
+		return new Observable((observer) => {
+		  cordova.exec(
+			(deepLinkUrl: string) => {
+			  observer.next(deepLinkUrl);
+			  observer.complete();
+			},
+			(error: any) => {
+			  observer.error(error);
+			},
+			"TrackierCordovaPlugin",
+			"trackier_deferredDeeplink",
+			[]
+		  );
+		});
+	}
+
+	@Cordova()
+	storeRetargetting(dob: any): Promise<string> {
 		return;
 	}
 }

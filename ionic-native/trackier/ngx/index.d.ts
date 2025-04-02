@@ -1,4 +1,5 @@
 import { AwesomeCordovaNativePlugin } from '@awesome-cordova-plugins/core';
+import { Observable } from 'rxjs';
 export declare enum TrackierEnvironment {
     Development = "development",
     Production = "production",
@@ -12,10 +13,14 @@ export declare class TrackierConfig {
     private manualMode;
     private disableOrganic;
     boolean: boolean;
+    private attributionParams;
     constructor(appToken: string, environment: TrackierEnvironment);
     setAppSecret(key: string, value: string): void;
     setManualMode(value: boolean): void;
     disableOrganicTracking(value: boolean): void;
+    setAttributionParams(params: {
+        [key: string]: string;
+    }): void;
 }
 export declare class TrackierEvent {
     private eventId;
@@ -55,7 +60,7 @@ export declare class TrackierEvent {
     setEventValue: (key: string, value: string) => void;
 }
 export declare class TrackierCordovaPlugin extends AwesomeCordovaNativePlugin {
-    initializeSDK(config: TrackierConfig): Promise<any>;
+    initializeSDK(config: TrackierConfig): Promise<void>;
     trackEvent(event: TrackierEvent): Promise<any>;
     setUserId(userId: string): Promise<string>;
     setUserEmail(userEmail: any): Promise<string>;
@@ -82,4 +87,7 @@ export declare class TrackierCordovaPlugin extends AwesomeCordovaNativePlugin {
     getDlv(): Promise<string>;
     getPid(): Promise<string>;
     getIsRetargeting(): Promise<string>;
+    updateAppleAdsToken(token: any): Promise<string>;
+    setDeferredDeeplinkCallbackListener(): Observable<string>;
+    storeRetargetting(dob: any): Promise<string>;
 }
