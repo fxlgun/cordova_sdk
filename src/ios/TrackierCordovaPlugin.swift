@@ -1,6 +1,4 @@
 import Cordova
-import Cordova
-import Cordova
 import trackier_ios_sdk
 
 @objc(TrackierCordovaPlugin) 
