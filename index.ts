@@ -192,11 +192,6 @@ export class TrackierCordovaPlugin extends AwesomeCordovaNativePlugin {
 	}
 
 	@Cordova()
-	setDeeplinks(): Promise<string> {
-		return;
-	}
-
-	@Cordova()
 	getAd(): Promise<string> {
 		return;
 	}
