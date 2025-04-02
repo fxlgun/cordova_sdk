@@ -129,7 +129,6 @@ var TrackierCordovaPlugin = /** @class */ (function (_super) {
     TrackierCordovaPlugin.prototype.parseDeepLink = function (uri) { return core.cordova(this, "parseDeepLink", {}, arguments); };
     TrackierCordovaPlugin.prototype.fireInstall = function () { return core.cordova(this, "fireInstall", {}, arguments); };
     TrackierCordovaPlugin.prototype.getTrackierId = function () { return core.cordova(this, "getTrackierId", {}, arguments); };
-    TrackierCordovaPlugin.prototype.setDeeplinks = function () { return core.cordova(this, "setDeeplinks", {}, arguments); };
     TrackierCordovaPlugin.prototype.getAd = function () { return core.cordova(this, "getAd", {}, arguments); };
     TrackierCordovaPlugin.prototype.getAdID = function () { return core.cordova(this, "getAdID", {}, arguments); };
     TrackierCordovaPlugin.prototype.getCampaign = function () { return core.cordova(this, "getCampaign", {}, arguments); };
@@ -161,7 +160,7 @@ var TrackierCordovaPlugin = /** @class */ (function (_super) {
 }(core.AwesomeCordovaNativePlugin));
 i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.16", ngImport: i0__namespace, type: TrackierCordovaPlugin, decorators: [{
             type: i0.Injectable
-        }], propDecorators: { initializeSDK: [], trackEvent: [], setUserId: [], setUserEmail: [], setUserName: [], setUserPhone: [], setDOB: [], setGender: [], parseDeepLink: [], fireInstall: [], getTrackierId: [], setDeeplinks: [], getAd: [], getAdID: [], getCampaign: [], getCampaignID: [], getAdSet: [], getAdSetID: [], getChannel: [], getP1: [], getP2: [], getP3: [], getP4: [], getP5: [], getClickId: [], getDlv: [], getPid: [], getIsRetargeting: [], updateAppleAdsToken: [], setDeferredDeeplinkCallbackListener: [], storeRetargetting: [] } });
+        }], propDecorators: { initializeSDK: [], trackEvent: [], setUserId: [], setUserEmail: [], setUserName: [], setUserPhone: [], setDOB: [], setGender: [], parseDeepLink: [], fireInstall: [], getTrackierId: [], getAd: [], getAdID: [], getCampaign: [], getCampaignID: [], getAdSet: [], getAdSetID: [], getChannel: [], getP1: [], getP2: [], getP3: [], getP4: [], getP5: [], getClickId: [], getDlv: [], getPid: [], getIsRetargeting: [], updateAppleAdsToken: [], setDeferredDeeplinkCallbackListener: [], storeRetargetting: [] } });
 
 exports.TrackierConfig = TrackierConfig;
 exports.TrackierCordovaPlugin = TrackierCordovaPlugin;

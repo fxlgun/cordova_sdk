@@ -71,7 +71,6 @@ export declare class TrackierCordovaPluginOriginal extends AwesomeCordovaNativeP
     parseDeepLink(uri: any): Promise<string>;
     fireInstall(): Promise<string>;
     getTrackierId(): Promise<string>;
-    setDeeplinks(): Promise<string>;
     getAd(): Promise<string>;
     getAdID(): Promise<string>;
     getCampaign(): Promise<string>;
