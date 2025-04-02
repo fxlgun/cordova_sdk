@@ -5,8 +5,8 @@ import { fromEvent } from 'rxjs';
 
 export enum TrackierEnvironment {
 	Development = 'development',
-	Production = 'production'
-	Testing = 'testing'
+	Production = 'production',
+	Testing = 'testing',
 }
 
 export class TrackierConfig {
@@ -15,7 +15,7 @@ export class TrackierConfig {
 	private secretId: string = '';
 	private secretKey: string = '';
 	private manualMode: boolean = false;
-	private disableOrganic boolean = false;
+	private disableOrganic: boolean = false;
 	private attributionParams: { [key: string]: string } = {};
 	
 	constructor(appToken: string, environment: TrackierEnvironment) {
