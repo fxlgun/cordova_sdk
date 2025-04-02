@@ -5,7 +5,7 @@ import { fromEvent } from 'rxjs';
 
 export enum TrackierEnvironment {
 	Development = 'development',
-	Production = 'production',
+	Production = 'production'
 	Testing = 'testing'
 }
 
@@ -15,7 +15,7 @@ export class TrackierConfig {
 	private secretId: string = '';
 	private secretKey: string = '';
 	private manualMode: boolean = false;
-	private disableOrganic: boolean = false;
+	private disableOrganic boolean = false;
 	private attributionParams: { [key: string]: string } = {};
 	
 	constructor(appToken: string, environment: TrackierEnvironment) {
@@ -137,7 +137,7 @@ export class TrackierCordovaPlugin extends AwesomeCordovaNativePlugin {
 
 	@Cordova()
 	initializeSDK(config: TrackierConfig): Promise<void> {
-		return;
+	    return;
 	}
  
 	 
@@ -273,6 +273,11 @@ export class TrackierCordovaPlugin extends AwesomeCordovaNativePlugin {
 
 	@Cordova()
 	getIsRetargeting(): Promise<string> {
+		return;
+	}
+
+	@Cordova()
+	updateAppleAdsToken(token: any): Promise<string> {
 		return;
 	}
 

@@ -55,6 +55,10 @@ exports.getTrackierId = function (callback) {
     cordovaExecCommandCallback('getTrackierId', callback);
 };
 
+exports.setDeeplinks = function (callback) {
+    cordovaExecCommandCallback('setDeeplinks', callback);
+};
+
 exports.getAd = function (callback) {
     cordovaExecCommandCallback('getAd', callback);
 };
@@ -125,4 +129,8 @@ exports.setDeferredDeeplinkCallbackListener = function (callback) {
 
 exports.storeRetargetting = function (arg0, success, error) {
     exec(success, error, 'TrackierCordovaPlugin', 'storeRetargetting', [(arg0)]);
+};
+
+exports.updateAppleAdsToken = function (arg0, success, error) {
+    exec(success, error, 'TrackierCordovaPlugin', 'updateAppleAdsToken', [(arg0)]);
 };
